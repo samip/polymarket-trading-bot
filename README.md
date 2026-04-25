@@ -47,6 +47,31 @@ python strategies/flash_crash_strategy.py --coin BTC
 
 That's it! You're ready to trade.
 
+## Docker Setup
+
+For containerized deployment:
+
+### Build and Run
+
+```bash
+# Build the Docker image
+docker build -t polymarket-bot .
+
+# Run with environment variables
+docker run -it --env-file .env polymarket-bot
+
+# Or use docker-compose (recommended)
+docker-compose up
+```
+
+### Configuration
+
+1. Copy `.env.example` to `.env` and fill in your credentials
+2. Optional: Copy `config.example.yaml` to `config.yaml` for advanced config
+3. Run the container
+
+The Docker setup automatically mounts your `.env` file and optional `config.yaml`.
+
 ## Trading Strategies
 
 ### Flash Crash Strategy

@@ -1,0 +1,17 @@
+services:
+  polymarket-bot:
+    build: .
+    container_name: polymarket-trading-bot
+    env_file:
+      - .env
+    volumes:
+      # Mount config file if using YAML config
+      - ./config.yaml:/app/config.yaml:ro
+      # Mount logs directory if needed
+      - ./logs:/app/logs
+    # If you want to run interactively
+    stdin_open: true
+    tty: true
+    # Or for background running
+    # restart: unless-stopped
+    # command: python scripts/run_bot.py --interactive
